@@ -1,15 +1,21 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="author" content="Arnaud Tournier - LTE Consulting"><title>Angular 2 Boot</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script type="text/javascript">document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section><h1>Angular 2 Boot</h1><p><small>Arnaud Tournier - LTE Consulting</small></p></section><section id="_arnaud_tournier"><h2>Arnaud Tournier</h2><div class="paragraph"><p>Archi-dev et formateur chez <strong>LTE Consulting</strong>.</p></div>
-<div class="paragraph"><p>Speaker <strong>Devoxx</strong>, <strong>Paris</strong>/<strong>Toulouse JUG</strong>, <strong>GWT.create</strong>, etc&#8230;&#8203;</p></div>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="author" content="Arnaud Tournier - LTE Consulting"><title>Angular 2 Boot</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme"><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script>document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section><h1>Angular 2 Boot</h1><p><small>Arnaud Tournier - LTE Consulting</small></p></section><section id="_arnaud_tournier"><h2>Arnaud Tournier</h2><div class="paragraph"><p>Archi-dev et formateur chez <strong>LTE Consulting</strong>.</p></div>
+<div class="paragraph"><p>Speaker <strong>Devoxx France</strong>, <strong>JUGs</strong>, <strong>GWT.create</strong>, <strong>GWTCon</strong>, etc&#8230;&#8203;</p></div>
 <div class="paragraph"><p>Email : <a href="mailto:ltearno@gmail.com">ltearno@gmail.com</a></p></div>
 <div class="paragraph"><p>Twitter : <a href="https://twitter.com/ltearno">@ltearno</a></p></div>
 <div class="paragraph"><p>Web : <a href="http://www.lteconsulting.fr">www.lteconsulting.fr</a></p></div>
 <div class="paragraph"><p>Full stack (x86_64 to JavaScript)</p></div></section>
-<section><section id="_angular_2_boot"><h2>Angular 2 Boot ?</h2><div class="paragraph"><p>Une expérience&#8230;&#8203;</p></div><div class="paragraph"><p>Projet Open Source permettant d&#8217;utiliser Angular 2 avec le langage Java 8.</p></div><div class="paragraph"><p><a href="http://lteconsulting.fr/angular2boot/">lteconsulting.fr/angular2boot/</a></p></div><aside class="notes"><div class="paragraph"><p>Qui ici (a) fait du Java ? En refera ?</p></div>
+<section id="_angular_2_boot"><h2>Angular 2 Boot ?</h2><div class="paragraph"><p>A new RIA paradigm for Java</p></div>
+<div class="paragraph"><p>Programming Angular 2 with Java 8</p></div>
+<div class="paragraph"><p>Using GWT 2.8&#8217;s JsInterop to integrate Angular 2</p></div></section>
+<section id="_why"><h2>Why ?</h2><div class="paragraph"><p>To support diversity ! Angular 2 natively supports : Typescript, Javascript and Dart.</p></div>
+<div class="imageblock" style=""><div class="content"><img src="images/angular-languages.png" alt="angular languages"></div></div>
+<div class="paragraph"><p>Why is not Java in the party ? Let&#8217;s remedy !</p></div></section>
+<section><section id="_how"><h2>How ?</h2><div class="paragraph"><p>So it all started as an experiment&#8230;&#8203;</p></div><div class="paragraph"><p>Projet Open Source permettant d&#8217;utiliser Angular 2 avec le langage Java 8.</p></div><div class="paragraph"><p><a href="http://lteconsulting.fr/angular2boot/">lteconsulting.fr/angular2boot/</a></p></div><aside class="notes"><div class="paragraph"><p>Qui ici (a) fait du GWT ? En refera ?</p></div>
 <div class="paragraph"><p>Qui a un backend Java et front en JS ?</p></div>
 <div class="paragraph"><p>Java permet de maitriser la complexité d&#8217;une grosse base de code (donc plutot grosses applications). Taille moyenne des applications GWT : au moins 100000 loc.</p></div></aside></section><section id="_facile_à_essayer"><h2>Facile à essayer</h2><div class="listingblock"><div class="content"><pre class="highlight"><code>mvn archetype:generate \
   -DarchetypeGroupId=fr.lteconsulting \
   -DarchetypeArtifactId=angular2-gwt.archetype \
-  -DarchetypeVersion=1.1
+  -DarchetypeVersion=1.4
 
 mvn clean install
 
@@ -20,7 +26,7 @@ mvn spring-boot:run
 mvn gwt:run-codeserver</code></pre></div></div></section><section id="_production"><h2>Production</h2><div class="listingblock"><div class="content"><pre class="highlight"><code># produit un fichier .war
 mvn clean install</code></pre></div></div></section></section>
 <section><section id="_ingrédients" data-background="images/ingredients.jpg"><h2>Ingrédients</h2></section><section id="_angular_2"><h2>Angular 2</h2><div class="ulist"><ul><li><p>non invasif,</p></li><li><p>performant,</p></li><li><p>architecture moderne, simple et efficace.</p></li></ul></div></section><section id="_gwt_2_8"><h2>GWT 2.8</h2><div class="ulist"><ul><li><p><strong>Java 8</strong> (typage fort, lambdas, streams, &#8230;&#8203;)</p></li><li><p><strong>JsInterop</strong> (integration js facile)</p></li><li><p><strong>SuperDevMode</strong> (live reload)</p></li><li><p>Compilation très <strong>optimisée</strong> (taile js --)</p></li></ul></div></section><section id="_spring_boot"><h2>Spring Boot</h2><div class="ulist"><ul><li><p>Application serveur standalone,</p></li><li><p>Facile à configurer,</p></li><li><p>API très riche (basé sur Spring),</p></li><li><p><em>Angular2Boot fonctionne avec n&#8217;importe quel backend</em>.</p></li></ul></div></section></section>
-<section><section id="_architecture_et_fonctionnement"><h2>Architecture et Fonctionnement</h2></section><section id="_" data-transition="fade" data-background="images/archi-survol.png" data-background-size="contain"></section><section id="__2" data-transition="fade" data-background="images/archi-runtime.png" data-background-size="contain"></section><section id="__3" data-transition="fade" data-background="images/archi-runtime-zoom.png" data-background-size="contain"></section><section id="__4" data-transition="fade" data-background="images/archi-compil.png" data-background-size="contain"></section><section id="__5" data-transition="fade" data-background="images/archi-compil-zoom.png" data-background-size="contain"></section><section id="__6" data-transition="fade" data-background="images/archi-sdm.png" data-background-size="contain"></section><section id="__7" data-transition="fade" data-background="images/archi-sdm-zoom.png" data-background-size="contain"></section></section>
+<section><section id="_architecture_et_fonctionnement"><h2>Architecture et Fonctionnement</h2></section><section id="_" data-transition="fade" data-background="images/archi-survol.png" data-background-size="contain"></section><section id="__2" data-transition="fade" data-background="images/archi-compil.png" data-background-size="contain"></section><section id="__3" data-transition="fade" data-background="images/archi-runtime.png" data-background-size="contain"></section><section id="__4" data-transition="fade" data-background="images/archi-sdm.png" data-background-size="contain"></section><section id="__5" data-transition="fade" data-background="images/archi-survol.png" data-background-size="contain"></section><section id="__6" data-transition="fade" data-background="images/archi-compil-zoom.png" data-background-size="contain"></section><section id="__7" data-transition="fade" data-background="images/archi-runtime-zoom.png" data-background-size="contain"></section><section id="__8" data-transition="fade" data-background="images/archi-sdm-zoom.png" data-background-size="contain"></section></section>
 <section><section id="_jsinterop"><h2>JsInterop</h2><div class="paragraph"><p>On fait parler Java et Javascript ensemble&#8230;&#8203;</p></div><div class="ulist"><ul><li><p>Java peut appeler Javascript</p></li><li><p>Javascript peut utiliser Java</p></li></ul></div></section><section id="_jsinterop_2"><h2>JsInterop</h2><div class="paragraph"><p>Pour utiliser du JS, on décrit le type en Java :</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">@JsType( isNative = true )
 public class XMLHttpRequest
@@ -33,14 +39,14 @@ public class XMLHttpRequest
 
   // ...
 }</code></pre></div></div></section><section id="_jsinterop_3"><h2>JsInterop</h2><div class="paragraph"><p>Puis on l&#8217;utilise comme si de rien n&#8217;était&#8230;&#8203;</p></div>
-<div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">XMLHttpRequest req = new XMLHttpRequest();
+<div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">XMLHttpRequest request = new XMLHttpRequest();
 
-req.open( "GET", "service.json" );
-req.setOnreadystatechange( (event) -&gt; {
+request.open( "GET", "service.json" );
+request.setOnreadystatechange( (event) -&gt; {
   ...
 };
 
-req.send( ... );</code></pre></div></div></section><section id="_jsinterop_4"><h2>JsInterop</h2><div class="paragraph"><p>Pour exporter une classe Java vers JS, on place les annotations&#8230;&#8203;</p></div>
+request.send( ... );</code></pre></div></div></section><section id="_jsinterop_4"><h2>JsInterop</h2><div class="paragraph"><p>Pour exporter une classe Java vers JS, on place les annotations&#8230;&#8203;</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">package fr.lteconsulting;
 
 @JsType
@@ -74,7 +80,7 @@ robot.avance()</code></pre></div></div></section><section id="_jsinterop_6"><h2>
 <div class="paragraph"><p>Si vous êtes intéressé par le projet, n&#8217;hésitez pas à demander pour le mettre en place !</p></div></section>
 <section id="_questions"><h2>Questions ?</h2></section>
 <section id="_merci_a_bientôt"><h2>Merci ! A bientôt</h2><div class="paragraph"><p>Les slides sont disponibles ici :</p></div>
-<div class="paragraph"><p><a href="http://www.lteconsulting.fr/angular2boot-talk/">www.lteconsulting.fr/angular2boot-talk/</a></p></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script type="text/javascript">// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<div class="paragraph"><p><a href="http://www.lteconsulting.fr/angular2boot-talk/">www.lteconsulting.fr/angular2boot-talk/</a></p></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,

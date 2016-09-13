@@ -17,7 +17,7 @@
 
 Archi-dev et formateur chez **LTE Consulting**.
 
-Speaker **Devoxx**, **Paris**/**Toulouse JUG**, **GWT.create**, etc...
+Speaker **Devoxx France**, **JUGs**, **GWT.create**, **GWTCon**, etc...
 
 Email : ltearno@gmail.com
 
@@ -29,7 +29,23 @@ Full stack (x86_64 to JavaScript)
 
 == Angular 2 Boot ?
 
-Une expérience...
+A new RIA paradigm for Java
+
+Programming Angular 2 with Java 8
+
+Using GWT 2.8's JsInterop to integrate Angular 2
+
+== Why ?
+
+To support diversity ! Angular 2 natively supports : Typescript, Javascript and Dart.
+
+image::angular-languages.png[]
+
+Why is not Java in the party ? Let's remedy !
+
+== How ?
+
+So it all started as an experiment...
 
 Projet Open Source permettant d'utiliser Angular 2 avec le langage Java 8.
 
@@ -37,7 +53,7 @@ http://lteconsulting.fr/angular2boot/[lteconsulting.fr/angular2boot/]
 
 [NOTE.speaker]
 --
-Qui ici (a) fait du Java ? En refera ?
+Qui ici (a) fait du GWT ? En refera ?
 
 Qui a un backend Java et front en JS ?
 
@@ -51,7 +67,7 @@ Java permet de maitriser la complexité d'une grosse base de code (donc plutot g
 mvn archetype:generate \
   -DarchetypeGroupId=fr.lteconsulting \
   -DarchetypeArtifactId=angular2-gwt.archetype \
-  -DarchetypeVersion=1.1
+  -DarchetypeVersion=1.4
   
 mvn clean install
 
@@ -111,30 +127,14 @@ mvn clean install
 [%notitle]
 [data-transition=fade]
 [data-background-size=contain]
-[data-background="images/archi-runtime.png"]
-=== .
-
-
-[%notitle]
-[data-transition=fade]
-[data-background-size=contain]
-[data-background="images/archi-runtime-zoom.png"]
-=== .
-
-
-[%notitle]
-[data-transition=fade]
-[data-background-size=contain]
 [data-background="images/archi-compil.png"]
 === .
 
-
 [%notitle]
 [data-transition=fade]
 [data-background-size=contain]
-[data-background="images/archi-compil-zoom.png"]
+[data-background="images/archi-runtime.png"]
 === .
-
 
 [%notitle]
 [data-transition=fade]
@@ -142,6 +142,23 @@ mvn clean install
 [data-background="images/archi-sdm.png"]
 === .
 
+[%notitle]
+[data-transition=fade]
+[data-background="images/archi-survol.png"]
+[data-background-size=contain]
+=== .
+
+[%notitle]
+[data-transition=fade]
+[data-background-size=contain]
+[data-background="images/archi-compil-zoom.png"]
+=== .
+
+[%notitle]
+[data-transition=fade]
+[data-background-size=contain]
+[data-background="images/archi-runtime-zoom.png"]
+=== .
 
 [%notitle]
 [data-transition=fade]
@@ -181,14 +198,14 @@ Puis on l'utilise comme si de rien n'était...
 
 [source,java]
 ----
-XMLHttpRequest req = new XMLHttpRequest();
+XMLHttpRequest request = new XMLHttpRequest();
 
-req.open( "GET", "service.json" );
-req.setOnreadystatechange( (event) -> {
+request.open( "GET", "service.json" );
+request.setOnreadystatechange( (event) -> {
   ...
 };
 
-req.send( ... );
+request.send( ... );
 ----
 
 === JsInterop
