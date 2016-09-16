@@ -284,6 +284,9 @@ All that at **compile time**!
 
 GWT is now very far away from the Web we know today.
 
+[%notitle]
+=== .
+
 [cols="2*"]
 |===
 |GWT-RPC
