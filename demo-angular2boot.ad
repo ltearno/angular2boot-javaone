@@ -419,6 +419,68 @@ _ps: can we drop semicolons in Java?_
 
 
 
+
+== JSR 269 - Pluggable Annotation Processing API
+
+Code generation in Java (source, byte-code and resource).
+
+Integrated with the Java compiler.
+
+Based on annotations. The developer's annotation processor receives parts of the program's AST.
+
+=== GOOD POINTS
+
+API is easy to use.
+
+Generated code is visible and debuggable,
+
+Generated code is known before end of compilation so you can reference it in your code.
+
+No overhead at runtime.
+
+(Does not depend on byte code: GWT compatible)
+
+=== HOW IT WORKS
+
+You must register your Annotation processors (through SPI).
+
+Java source files are compiled during rounds.
+
+Each round, processors are activated and receive the program's AST.
+
+They can then generate files which will be part of the next round.
+
+When no file is generated during a round, real compilation happens.
+
+=== Annotation processor
+
+[source,java]
+----
+@SupportedAnnotationTypes("fr.lteconsulting.AutoUi")
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
+public class AutoUiProcessor extends AbstractProcessor  {
+    @Override
+    public boolean process(
+            Set<TypeElement> annotations,
+            RoundEnvironment round) {
+        for(TypeElement element : 
+            round.getElementsAnnotatedWith(AutoUi.class)) {
+            ...
+            JavaFileObject javaFile = filer.createSourceFile(classFqn);
+            Writer writer = javaFile.openWriter();
+            ...
+        }
+        return true;
+    }
+}
+----
+
+
+
+
+
+
+
 == Angular2Boot
 
 - Angular2Gwt: GWT and Angular2 integration library,

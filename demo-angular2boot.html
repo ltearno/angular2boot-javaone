@@ -89,6 +89,31 @@ robot.wifiOn = true
 
 robot.move()</code></pre></div></div>
 <div class="paragraph"><p><em>ps: can we drop semicolons in Java?</em></p></div></section><section id="_superdevmode"><h2>SuperDevMode</h2><div class="ulist"><ul><li><p>Fast incremental compiler for development,</p></li><li><p>Compile time function of code changes and not code base size!</p></li></ul></div></section></section>
+<section><section id="_jsr_269_pluggable_annotation_processing_api"><h2>JSR 269 - Pluggable Annotation Processing API</h2><div class="paragraph"><p>Code generation in Java (source, byte-code and resource).</p></div><div class="paragraph"><p>Integrated with the Java compiler.</p></div><div class="paragraph"><p>Based on annotations. The developer&#8217;s annotation processor receives parts of the program&#8217;s AST.</p></div></section><section id="_good_points"><h2>GOOD POINTS</h2><div class="paragraph"><p>API is easy to use.</p></div>
+<div class="paragraph"><p>Generated code is visible and debuggable,</p></div>
+<div class="paragraph"><p>Generated code is known before end of compilation so you can reference it in your code.</p></div>
+<div class="paragraph"><p>No overhead at runtime.</p></div>
+<div class="paragraph"><p>(Does not depend on byte code: GWT compatible)</p></div></section><section id="_how_it_works"><h2>HOW IT WORKS</h2><div class="paragraph"><p>You must register your Annotation processors (through SPI).</p></div>
+<div class="paragraph"><p>Java source files are compiled during rounds.</p></div>
+<div class="paragraph"><p>Each round, processors are activated and receive the program&#8217;s AST.</p></div>
+<div class="paragraph"><p>They can then generate files which will be part of the next round.</p></div>
+<div class="paragraph"><p>When no file is generated during a round, real compilation happens.</p></div></section><section id="_annotation_processor"><h2>Annotation processor</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">@SupportedAnnotationTypes("fr.lteconsulting.AutoUi")
+@SupportedSourceVersion(SourceVersion.RELEASE_8)
+public class AutoUiProcessor extends AbstractProcessor  {
+    @Override
+    public boolean process(
+            Set&lt;TypeElement&gt; annotations,
+            RoundEnvironment round) {
+        for(TypeElement element :
+            round.getElementsAnnotatedWith(AutoUi.class)) {
+            ...
+            JavaFileObject javaFile = filer.createSourceFile(classFqn);
+            Writer writer = javaFile.openWriter();
+            ...
+        }
+        return true;
+    }
+}</code></pre></div></div></section></section>
 <section><section id="_angular2boot"><h2>Angular2Boot</h2><div class="ulist"><ul><li><p>Angular2Gwt: GWT and Angular2 integration library,</p></li><li><p>Spring boot: powerful and simple backend,</p></li><li><p>Dead simple bootstrapping to begin development.</p></li></ul></div></section><section id="_easy_to_try"><h2>Easy to try</h2><div class="listingblock"><div class="content"><pre class="highlight"><code>mvn archetype:generate \
   -DarchetypeGroupId=fr.lteconsulting \
   -DarchetypeArtifactId=angular2-gwt.archetype \
