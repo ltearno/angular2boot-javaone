@@ -105,8 +105,8 @@ Java permet de maitriser la complexité d'une grosse base de code (donc plutot g
 
 - Standalone server application (µ-service friendly),
 - Easy to start with,
-- Rich API (Spring),
-- _Angular2Gwt works with **any** backend_.
+- Rich API,
+- _Note: Angular2Gwt works with **any** backend_.
 
 
 
@@ -124,21 +124,21 @@ Java permet de maitriser la complexité d'une grosse base de code (donc plutot g
 
 
 
-== Angular 2
+== Angular
 
 Angular 1 was released in 2009.
 
-=== At that time, there was not a lot of Javascript RIA frameworks.
+=== At that time, there was not a lot of Javascript RIA frameworks
 
-=== Angular brings the **Data binding** to the browser.
+=== Angular brought the **Data binding** into the browser
 
-=== And you suddendly were able to write a todo list application in few lines of code!
+=== And you suddendly were able to write a todo list application in 15 lines of code!
 
 === Enormous success!
 
 image::angular-success.png[]
 
-=== Millions of applications were built with Angular.
+=== Millions of applications were built with Angular
 
 === When it came to evolve the framework, the team decided to build upon the (enormous) return of experience they had...
 
@@ -165,16 +165,16 @@ image::angular-success.png[]
 
 Parts of the application are encapsulated into _modules_.
 
-Leans to clean code and advanced AOT.
+Leads to clean code and more advanced AOT compilation.
 
 === Components
 
 Basic blocks of your application.
 
-Contains :
+A component is:
 
-- _view_ (template),
-- _model_ (data and methods).
+- a _view_ (template),
+- and a _model_ (data and methods).
 
 Interaction between view and model through _data binding_.
 
@@ -182,11 +182,11 @@ Interaction between view and model through _data binding_.
 
 Each component is responsible for a part of the DOM tree.
 
-Components form a tree.
+Components also form a tree.
 
-Components can interacts with each other (inputs, outputs...).
+Components can interacts with each other through cleanly defined ways.
 
-=== Example
+=== Sample
 
 TODO IMAGE DE L'ARBRE DE COMPOSANTS
 
@@ -197,18 +197,20 @@ Sharing services between components.
 
 Lifecycle and dependencies are managed by Angular.
 
-Each component has a Dependency Injector. Those also form a tree.
+Each component has a Dependency Injector.
+
+Those also form a tree.
 
 
 === Change detection
 
 Angular uses Zone.js to track changes.
 
-Zones are the _asynchronous TLS_.
+Zones == _asynchronous TLS_.
 
-They preserve an execution context accross asynchronous calls.
+Preserve an execution context accross asynchronous calls.
 
-(done by patching most of the browsers async functions)
+_(done by patching most of the browsers async functions)_
 
 
 
@@ -222,13 +224,15 @@ First version released in 2006.
 
 Really big success!
 
-Community of ~ 100k developpers
+Community of ~ 100k+ developpers.
 
 === Context
 
 At that time, Javascript ecosystem sucked!
 
 Browsers were incompatible...
+
+Developping complex web applications was ... hell!
 
 === What GWT brought
 
@@ -237,15 +241,16 @@ Browsers were incompatible...
 - A complete toolkit for the Web (resource caching, RPC, ...),
 - A very good compiler!
 
-=== A word about the compiler
+=== Compiler power sample
 
 [source,java]
 ----
-Shape s = new Square(2); // side length of 
+Shape s = new Square(2);
 int a = s.getArea();
 ----
 
-=== A word about the compiler
+[transition=fade]
+=== Becomes
 
 [source,java]
 ----
@@ -253,12 +258,15 @@ Square s = new Square(2);
 int a = s.length * s.length;
 ----
 
-=== A word about the compiler
+[transition=fade]
+=== And then
 
 [source,java]
 ----
 int a = 4;
 ----
+
+All that at **compile time**.
 
 === And now in 2016
 
