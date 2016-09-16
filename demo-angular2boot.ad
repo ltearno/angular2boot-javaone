@@ -249,7 +249,7 @@ Shape s = new Square(2);
 int a = s.getArea();
 ----
 
-[transition=fade-in]
+[data-transition=fade-in]
 === Becomes
 
 [source,java]
@@ -258,7 +258,7 @@ Square s = new Square(2);
 int a = s.length * s.length;
 ----
 
-[transition=fade-in]
+[data-transition=fade-in]
 === And then
 
 [source,java]
