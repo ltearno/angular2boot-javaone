@@ -86,24 +86,24 @@ Java permet de maitriser la complexité d'une grosse base de code (donc plutot g
 === Angular 2
 
 - non invasive,
-- performances,
-- modern architecture, simple and efficient.
+- efficient,
+- modern architecture, simple and effective.
 
 === GWT 2.8
 
 - **Java 8** (strong typing, lambdas, streams, ...)
 - **JsInterop** (easy integration with JS)
 - **SuperDevMode** (compile on reload)
-- Optimized compilation (generated js size, performances)
+- Optimized compilation (generated js size, efficiency)
 
 === JSR 269
 
-- Annotation Processing API
-- Code generation during compilation
+- Java Annotation Processing API,
+- Code generation integrated with compilation.
 
 === Spring Boot
 
-- Standalone server application,
+- Standalone server application (µ-service friendly),
 - Easy to start with,
 - Rich API (Spring),
 - _Angular2Gwt works with **any** backend_.
