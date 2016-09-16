@@ -186,11 +186,9 @@ Components also form a tree.
 
 Components can interacts with each other through cleanly defined ways.
 
-[%notitle]
-[data-background="images/angular-components.png"]
-=== .
+=== Components tree
 
-&nbsp;
+image::angular-components.png[]
 
 
 === Dependency Injection
