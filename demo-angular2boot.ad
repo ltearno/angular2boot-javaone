@@ -255,8 +255,8 @@ int a = s.getArea();
 
 [source,java]
 ----
-Square s = new Square(2);
-int a = s.length * s.length;
+Square s = new Square(2); // No need for the Shape interface
+int a = s.length * s.length; // Method inlining
 ----
 
 [data-transition=fade-in]
@@ -264,33 +264,46 @@ int a = s.length * s.length;
 
 [source,java]
 ----
-int a = 4;
+int a = 4; // constants resolution
 ----
 
-All that at **compile time**.
+All that at **compile time**!
 
 === And now in 2016
 
 - The Javascript ecosystem really rocks! (we need to leverage that)
-- The evergreen browsers are compatbile (no need anymore for a layer above them)
+- The evergreen browsers are compatible (do not require a layer above them anymore)
 
 === Other problems
 
-- The compilation was (very) slow.
-- GWT did too much: build system, optimisations, permutations, not following standards, proprietary RPC, code change detection, templating...
+- The compilation was (really very) slow.
+- GWT did too much: _build system, optimisations, permutations, not following standards, proprietary RPC, code change detection, templating..._
 - Many things GWT did are now available as _standard_ web tools.
 
 === In other words
 
 GWT is now very far away from the Web we know today.
 
----------------|-----------------------------
-GWT-RPC        | REST Json Web services
-Widgets        | Native HTML5 (ok lacks encapsulation)
-Code splitting | ES7 modules, WebPack code splitting
-Optimisations  | Closure compiler, ...
-Code Generators| JSR-269
-JVM debugging  | SourceMaps
+[cols="2*"]
+|===
+|GWT-RPC
+|REST Json Web services
+
+|Widgets
+|Native HTML5 (ok lacks encapsulation)
+
+|Code splitting
+|ES7 modules, WebPack code splitting
+
+|Optimisations
+|Closure compiler, ...
+
+|Code Generators
+|JSR-269
+
+|JVM debugging
+|SourceMaps
+|===
 
 === GWT 2.8
 
