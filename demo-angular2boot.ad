@@ -241,6 +241,7 @@ Developping complex web applications was ... hell!
 - A complete toolkit for the Web (resource caching, RPC, ...),
 - A very good compiler!
 
+[data-transition=fade-in]
 === Compiler power sample
 
 [source,java]
