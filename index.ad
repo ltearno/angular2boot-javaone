@@ -475,6 +475,18 @@ public class AutoUiProcessor extends AbstractProcessor  {
 }
 ----
 
+=== Java workflow
+
+image::javac-flow.png[]
+
+=== Just one more thing
+
+A processor can break the compilation by outputting errors.
+
+It can also provide the user with tips by outputting warnings.
+
+image::error-in-eclipse.png[]
+
 
 
 
