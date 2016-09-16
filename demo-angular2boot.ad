@@ -605,7 +605,7 @@ public class HeroDetailComponent implements OnInit
 
 === The instanceof problem
 
-Angular check at runtime that components are valid.
+Angular checks at runtime that components are valid.
 
 With SuperDevMode, code is loaded in an external frame thus breaking `instanceof` operator.
 
