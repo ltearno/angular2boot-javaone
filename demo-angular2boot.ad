@@ -19,7 +19,7 @@
 
 Speaker **Devoxx France**, **JUGs**, **GWT.create**, **GWTCon**, etc...
 
-Training : Java, C#, .net, Typescript, GWT, Angular 2, GIT, ...
+Training : Java, C#, .net, Typescript, GWT, Angular 2, JavaEE, Spring, git...
 
 Email : ltearno@gmail.com
 
@@ -29,18 +29,18 @@ Web : http://www.lteconsulting.fr[www.lteconsulting.fr]
 
 Full stack (x86_64 to JavaScript)
 
-== This presentation is online !
+== This presentation is online!
 
 http://lteconsulting.fr/angular2boot-javaone/[lteconsulting.fr/angular2boot-javaone]
 
-_works with your phone too ;)_
+_works on your phone too ;)_
 
 Demo code available at
 
 - https://github.com/ltearno/tour-of-heroes[github.com/ltearno/tour-of-heroes]
 - https://github.com/ltearno/angular2boot-demos[github.com/ltearno/angular2boot-demos]
 
-== Angular 2 Boot ?
+== Angular 2 Boot?
 
 A new RIA paradigm for Java : programming Angular 2 with Java 8.
 
@@ -50,22 +50,22 @@ http://lteconsulting.fr/angular2boot/[lteconsulting.fr/angular2boot]
 
 == A more technical title...
 
-Integrating Angular 2 and GWT 2.8, problems and solutions...
+Integrating Angular 2 and GWT 2.8, **problems** and **solutions**...
 
-== Why ?
+== Why?
 
 Angular 2 natively supports Typescript, Javascript and Dart but **Java** has all the required features.
 
 image::angular-languages.png[]
 
-Why is not Java in the party ? Let's remedy !
+Why is not Java in the party? **Let's remedy!**
 
 [%notitle]
 == .
 
 It all started as an experiment...
 
-But since it rocks, I wanted to show it to the world !
+But since it rocks, I wanted to show it to the world!
 
 [NOTE.speaker]
 --
@@ -77,7 +77,9 @@ Java permet de maitriser la complexité d'une grosse base de code (donc plutot g
 --
 
 [data-background="images/ingredients.jpg"]
-== The receipe
+== The recipe
+
+.
 
 === Angular 2
 
@@ -128,9 +130,9 @@ Angular 1 was released in 2009.
 
 === Angular brings the **Data binding** to the browser.
 
-=== And you suddendly were able to write a todo list application in few lines of code !
+=== And you suddendly were able to write a todo list application in few lines of code!
 
-=== Enormous success !
+=== Enormous success!
 
 image::angular-success.png[]
 
@@ -140,7 +142,7 @@ image::angular-success.png[]
 
 === And they decided to write Angular 2 from scratch.
 
-=== Why ? What were the problems ?
+=== Why? What were the problems?
 
 === Architectural problems...
 
@@ -216,7 +218,7 @@ They preserve an execution context accross asynchronous calls.
 
 First version released in 2006.
 
-Really big success !
+Really big success!
 
 Community of ~ 100k developpers
 
@@ -680,7 +682,7 @@ This will allow more AOT compilation optimizations (Angular compiler may be able
 
 Better integration with JS build and packaging tools.
 
-=== Static analysis of Java code is really easy !
+=== Static analysis of Java code is really easy!
 
 === Bundling the GWT generated JS together with Angular runtime for better compression.
 
@@ -695,6 +697,6 @@ Better integration with JS build and packaging tools.
 - Give GWT a second youth! (only uses the core of it).
 - (IMHO) Take the opportunity to throw some rules out the window! (getter/setter, naming, ...).
 
-== Questions ?
+== Questions?
 
 == Thanks, it was a pleasure!
