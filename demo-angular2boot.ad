@@ -560,16 +560,16 @@ In brief, we want syntax consistency.
 [source,javascript]
 ----
 @Component( { selector: "my-hero-detail",
-		templateUrl: "hero-detail.component.html",
-		styleUrls: "hero-detail.component.css" } )
+  templateUrl: "hero-detail.component.html",
+  styleUrls: "hero-detail.component.css" } )
 export class HeroDetailComponent
 {
   @Input() hero = null;
-	@Output() updated = new EventEmitter();
-	
-	HeroDetailComponent( private HeroService heroService ) {}
+  @Output() updated = new EventEmitter();
 
-	ngOnInit() { ... }
+  HeroDetailComponent( private HeroService heroService ) {}
+
+  ngOnInit() { ... }
 
   // ...
 }
@@ -580,23 +580,23 @@ export class HeroDetailComponent
 [source,java]
 ----
 @Component( selector = "my-hero-detail",
-		templateUrl = "hero-detail.component.html",
-		styleUrls = "hero-detail.component.css" )
+  templateUrl = "hero-detail.component.html",
+  styleUrls = "hero-detail.component.css" )
 @JsType
 public class HeroDetailComponent implements OnInit
 {
   @Input public Hero hero = null;
-	@Output public EventEmitter<Hero> updated = new EventEmitter<>();
+  @Output public EventEmitter<Hero> updated = new EventEmitter<>();
 
-	private HeroService heroService;
+  private HeroService heroService;
 	
-	public HeroDetailComponent( HeroService heroService )
-	{
-		this.heroService = heroService;
-	}
+  public HeroDetailComponent( HeroService heroService )
+  {
+    this.heroService = heroService;
+  }
 
-	@Override
-	public void ngOnInit() { ... }
+  @Override
+  public void ngOnInit() { ... }
 
   // ...
 }
@@ -623,7 +623,7 @@ Angular 2 requires a strict environment to be built.
 
 Docker to the rescue!
 
-=> From RC6 ro final: 1 hour of work!
+=> From RC6 to final: 1 hour of work!
 
 === Legacy GWT Widgets
 
@@ -662,6 +662,7 @@ Using **Selenium WebDriver** and **Spring** integration testing facilities, it i
 == Advantages of Angular2Boot
 
 - Developper doesn't need to know internals of Angular2Gwt, everything is taken care of.
+- Workflow is really comfortable.
 - GWT compilation without User module (Widgets) is dead fast.
 - Really easy to bootstrap a working application (only one maven dependency in fact).
 - Optimizations done by GWT are still very powerful: fast application, small download.
@@ -677,7 +678,7 @@ Using **Selenium WebDriver** and **Spring** integration testing facilities, it i
 == Use cases
 
 - 100% Java applications (small or big),
-- Implémentation de services en Java (interfaçage typé avec un Web service implémenté en Java),
+- Service implementations in Java (strongly typed Web service interfacing),
 - JS, Typescript and Java integration,
 - Woudl fit well with JHipster?
 
