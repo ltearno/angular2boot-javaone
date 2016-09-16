@@ -432,7 +432,7 @@ _ps: can we drop semicolons in Java?_
 mvn archetype:generate \
   -DarchetypeGroupId=fr.lteconsulting \
   -DarchetypeArtifactId=angular2-gwt.archetype \
-  -DarchetypeVersion=1.6
+  -DarchetypeVersion=1.5
   
 mvn clean install
 
@@ -454,11 +454,10 @@ mvn gwt:run-codeserver
 
 [source]
 ----
-# produit un fichier .war
 mvn clean install
 ----
 
-You get your autonomous fat jar!
+You get an autonomous fat jar!
 
 === Architecture
 
@@ -536,10 +535,12 @@ Annotations can play the role of decorators (ex *@Component*).
 
 Those are processed at **compile** time.
 
-Can generate RTTI code for Angular at compile time.
+And generate RTTI code for Angular.
+
+=== How?
 
 - JSR-269 is used to generate RTTI,
-- Use Angular JS api to provide the RTTI.
+- Use Angular JS api through JsInterop to provide the RTTI.
 
 === How?
 
@@ -550,27 +551,23 @@ Can generate RTTI code for Angular at compile time.
 
 === Consistent syntax
 
-For the developper, we want him to be able to read JS documentation and know _how_ to code in Java.
+The developper should be able to read JS documentation and know _how_ to code in Java.
 
-In brief, consistency in the syntax.
+In brief, we want syntax consistency.
 
 === Typescript written component
 
 [source,javascript]
 ----
-@Component( {
-		selector: "my-hero-detail",
+@Component( { selector: "my-hero-detail",
 		templateUrl: "hero-detail.component.html",
 		styleUrls: "hero-detail.component.css" } )
 export class HeroDetailComponent
 {
   @Input() hero = null;
-	
 	@Output() updated = new EventEmitter();
 	
-	public HeroDetailComponent( private HeroService heroService )
-	{
-	}
+	HeroDetailComponent( private HeroService heroService ) {}
 
 	ngOnInit() { ... }
 
@@ -582,15 +579,13 @@ export class HeroDetailComponent
 
 [source,java]
 ----
-@Component(
-		selector = "my-hero-detail",
+@Component( selector = "my-hero-detail",
 		templateUrl = "hero-detail.component.html",
 		styleUrls = "hero-detail.component.css" )
 @JsType
 public class HeroDetailComponent implements OnInit
 {
   @Input public Hero hero = null;
-	
 	@Output public EventEmitter<Hero> updated = new EventEmitter<>();
 
 	private HeroService heroService;
