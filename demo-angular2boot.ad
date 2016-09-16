@@ -691,6 +691,10 @@ Code generation is not easy in Javascript but really easy in Java.
 
 (see http://www.lteconsulting.fr/annotation-processing/#/[GWTCon talk on JSR-269]).
 
+=== Generate service access code from backend interface
+
+Same idea as the previous one...
+
 === Generate TS descriptions of Java components for easy integration of Java components into a TS Angular application
 
 Havin a Java backend, write the Angular service in Java (reuse code and DTOs) and export definitions to TS.
