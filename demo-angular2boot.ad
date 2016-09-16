@@ -701,6 +701,8 @@ Generate TS descriptions of Java components for easy integration of Java compone
 
 === Run Angular in Nashorn to do server-side rendering (Angular Universal)
 
+=== Try that in NativeScript
+
 === Module loading
 
 Not easy!
