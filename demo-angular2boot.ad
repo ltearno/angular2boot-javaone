@@ -629,7 +629,7 @@ Docker to the rescue!
 
 In fact it worked out of the box, no problem, cool!
 
-=== Emulating ES6 property get and set
+=== Emulating ES6 get and set operators
 
 Java does not provide this language facility...
 
@@ -643,7 +643,7 @@ So we use JSR-269 to generate trampoline functions, triggered by `@PropertyGette
 
 === Unit tests
 
-- No production-ready way to do that with Angular,
+- No production-ready way to do that with Angular yet,
 - Difficult to use the `GWTTestCase` facility (need to bootstrap Angular in the testing environment which runs under HTMLUnit which is not ready for ES6. More, GWT uses Jetty as a testing backend but we want to be able to use **any** backend - Angular2Boot uses SpringBoot).
 
 No real solution yet...
