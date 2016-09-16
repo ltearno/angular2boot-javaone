@@ -695,9 +695,9 @@ Code generation is not easy in Javascript but really easy in Java.
 
 Same idea as the previous one...
 
-=== Generate TS descriptions of Java components for easy integration of Java components into a TS Angular application
+=== TS definitions generation 
 
-Havin a Java backend, write the Angular service in Java (reuse code and DTOs) and export definitions to TS.
+Generate TS descriptions of Java components for easy integration of Java components into a TS Angular application.
 
 === Run Angular in Nashorn to do server-side rendering (Angular Universal)
 
@@ -724,7 +724,7 @@ Better integration with JS build and packaging tools.
 
 - Tested on little projects, was very impressive!
 - Give GWT a second youth! (only uses the core of it).
-- (IMHO) Take the opportunity to throw some rules out the window! (getter/setter, naming, ...).
+- (IMHO) Take the opportunity to throw some rules out of the window! (getter/setter, naming, ...).
 
 == Questions?
 
