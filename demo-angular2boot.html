@@ -29,26 +29,28 @@
 <div class="ulist"><ul><li><p><em>view</em> (template),</p></li><li><p><em>model</em> (data and methods).</p></li></ul></div>
 <div class="paragraph"><p>Interaction between view and model through <em>data binding</em>.</p></div></section><section id="_components_2"><h2>Components</h2><div class="paragraph"><p>Each component is responsible for a part of the DOM tree.</p></div>
 <div class="paragraph"><p>Components form a tree.</p></div>
-<div class="paragraph"><p>Components can interacts with each other (inputs, outputs&#8230;&#8203;).</p></div></section><section id="_example"><h2>Example</h2><div class="paragraph"><p>IMAGE DE L&#8217;ARBRE DE COMPOSANTS</p></div></section><section id="_dependency_injection"><h2>Dependency Injection</h2><div class="paragraph"><p>Sharing services between components.</p></div>
+<div class="paragraph"><p>Components can interacts with each other (inputs, outputs&#8230;&#8203;).</p></div></section><section id="_example"><h2>Example</h2><div class="paragraph"><p>TODO IMAGE DE L&#8217;ARBRE DE COMPOSANTS</p></div></section><section id="_dependency_injection"><h2>Dependency Injection</h2><div class="paragraph"><p>Sharing services between components.</p></div>
 <div class="paragraph"><p>Lifecycle and dependencies are managed by Angular.</p></div>
 <div class="paragraph"><p>Each component has a Dependency Injector. Those also form a tree.</p></div></section><section id="_change_detection"><h2>Change detection</h2><div class="paragraph"><p>Angular uses Zone.js to track changes.</p></div>
 <div class="paragraph"><p>Zones are the <em>asynchronous TLS</em>.</p></div>
 <div class="paragraph"><p>They preserve an execution context accross asynchronous calls.</p></div>
-<div class="paragraph"><p>(done by patching most of the browsers async functions)</p></div></section><section id="_facile_à_essayer"><h2>Facile à essayer</h2><div class="listingblock"><div class="content"><pre class="highlight"><code>mvn archetype:generate \
-  -DarchetypeGroupId=fr.lteconsulting \
-  -DarchetypeArtifactId=angular2-gwt.archetype \
-  -DarchetypeVersion=1.4
-
-mvn clean install
-
-java -jar target/YOUR_ARTIFACT_ID.jar</code></pre></div></div></section><section id="_développement_live_reload"><h2>Développement Live reload</h2><div class="listingblock"><div class="content"><pre class="highlight"><code># Partie serveur
-mvn spring-boot:run
-
-# Partie client
-mvn gwt:run-codeserver</code></pre></div></div></section><section id="_production"><h2>Production</h2><div class="listingblock"><div class="content"><pre class="highlight"><code># produit un fichier .war
-mvn clean install</code></pre></div></div></section></section>
-<section><section id="_architecture_et_fonctionnement"><h2>Architecture et Fonctionnement</h2></section><section id="_" data-transition="fade" data-background="images/archi-survol.png" data-background-size="contain"></section><section id="__2" data-transition="fade" data-background="images/archi-compil.png" data-background-size="contain"></section><section id="__3" data-transition="fade" data-background="images/archi-runtime.png" data-background-size="contain"></section><section id="__4" data-transition="fade" data-background="images/archi-sdm.png" data-background-size="contain"></section><section id="__5" data-transition="fade" data-background="images/archi-survol.png" data-background-size="contain"></section><section id="__6" data-transition="fade" data-background="images/archi-compil-zoom.png" data-background-size="contain"></section><section id="__7" data-transition="fade" data-background="images/archi-runtime-zoom.png" data-background-size="contain"></section><section id="__8" data-transition="fade" data-background="images/archi-sdm-zoom.png" data-background-size="contain"></section></section>
-<section><section id="_jsinterop"><h2>JsInterop</h2><div class="paragraph"><p>On fait parler Java et Javascript ensemble&#8230;&#8203;</p></div><div class="ulist"><ul><li><p>Java peut appeler Javascript</p></li><li><p>Javascript peut utiliser Java</p></li></ul></div></section><section id="_jsinterop_2"><h2>JsInterop</h2><div class="paragraph"><p>Pour utiliser du JS, on décrit le type en Java :</p></div>
+<div class="paragraph"><p>(done by patching most of the browsers async functions)</p></div></section></section>
+<section><section id="_gwt"><h2>GWT</h2></section><section id="_history"><h2>History</h2><div class="paragraph"><p>First version released in 2006.</p></div>
+<div class="paragraph"><p>Really big success !</p></div>
+<div class="paragraph"><p>Community of ~ 100k developpers</p></div></section><section id="_context"><h2>Context</h2><div class="paragraph"><p>At that time, Javascript ecosystem sucked!</p></div>
+<div class="paragraph"><p>Browsers were incompatible&#8230;&#8203;</p></div></section><section id="_what_gwt_brought"><h2>What GWT brought</h2><div class="ulist"><ul><li><p>Hide browsers incompatibilities,</p></li><li><p>Widgets to build the UI : Swing-like,</p></li><li><p>A complete toolkit for the Web (resource caching, RPC, &#8230;&#8203;),</p></li><li><p>A very good compiler!</p></li></ul></div></section><section id="_a_word_about_the_compiler"><h2>A word about the compiler</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">Shape s = new Square(2); // side length of
+int a = s.getArea();</code></pre></div></div></section><section id="_a_word_about_the_compiler_2"><h2>A word about the compiler</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">Square s = new Square(2);
+int a = s.length * s.length;</code></pre></div></div></section><section id="_a_word_about_the_compiler_3"><h2>A word about the compiler</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">int a = 4;</code></pre></div></div></section><section id="_and_now_in_2016"><h2>And now in 2016</h2><div class="ulist"><ul><li><p>The Javascript ecosystem really rocks! (we need to leverage that)</p></li><li><p>The evergreen browsers are compatbile (no need anymore for a layer above them)</p></li></ul></div></section><section id="_other_problems"><h2>Other problems</h2><div class="ulist"><ul><li><p>The compilation was (very) slow.</p></li><li><p>GWT did too much: build system, optimisations, permutations, not following standards, proprietary RPC, code change detection, templating&#8230;&#8203;</p></li><li><p>Many things GWT did are now available as <em>standard</em> web tools.</p></li></ul></div></section><section id="_in_other_words"><h2>In other words</h2><div class="paragraph"><p>GWT is now very far away from the Web we know today.</p></div>
+<div class="paragraph"><p>---------------|-----------------------------
+GWT-RPC        | REST Json Web services
+Widgets        | Native HTML5 (ok lacks encapsulation)
+Code splitting | ES7 modules, WebPack code splitting
+Optimisations  | Closure compiler, &#8230;&#8203;
+Code Generators| JSR-269
+JVM debugging  | SourceMaps</p></div></section><section id="_gwt_2_8_2"><h2>GWT 2.8</h2><div class="paragraph"><p>GWT 2.8 is the transition version to a new future:</p></div>
+<div class="ulist"><ul><li><p>JsInterop,</p></li><li><p>Java 8 language,</p></li><li><p>Time to drop Widgets and old stuff!</p></li></ul></div></section><section id="_gwt_3_aka_j2cl"><h2>GWT 3 (aka J2Cl)</h2><div class="ulist"><ul><li><p>Lightweight,</p></li><li><p>More unopiniated (can be integrated anywhere),</p></li><li><p>Drops a lot of functionalities done now by standard tools.</p></li></ul></div></section></section>
+<section><section id="_gwt_fundamentals"><h2>GWT fundamentals</h2></section><section id="_the_compiler"><h2>The compiler</h2><div class="ulist"><ul><li><p>Preserves Java semantic,</p></li><li><p>Still does a bunch of optimisations,</p></li><li><p>Mostly ouputs modern Javascript, optimizable with Closure Compiler.</p></li></ul></div></section><section id="_jsinterop"><h2>JsInterop</h2><div class="paragraph"><p>A very easy to integrate Javascript and Java code.</p></div>
+<div class="paragraph"><p>A two-way road (JS&#8594;Java, Java&#8594;JS)</p></div></section><section id="_jsinterop_2"><h2>JsInterop</h2><div class="paragraph"><p>To use JS code from Java, you just have to describe the JS type :</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">@JsType( isNative = true )
 public class XMLHttpRequest
 {
@@ -59,15 +61,15 @@ public class XMLHttpRequest
   public native void send( Object data );
 
   // ...
-}</code></pre></div></div></section><section id="_jsinterop_3"><h2>JsInterop</h2><div class="paragraph"><p>Puis on l&#8217;utilise comme si de rien n&#8217;était&#8230;&#8203;</p></div>
+}</code></pre></div></div></section><section id="_jsinterop_3"><h2>JsInterop</h2><div class="paragraph"><p>Then use the class as a normal Java class</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">XMLHttpRequest request = new XMLHttpRequest();
 
 request.open( "GET", "service.json" );
-request.setOnreadystatechange( (event) -&gt; {
+request.setOnreadystatechange( event -&gt; {
   ...
 };
 
-request.send( ... );</code></pre></div></div></section><section id="_jsinterop_4"><h2>JsInterop</h2><div class="paragraph"><p>Pour exporter une classe Java vers JS, on place les annotations&#8230;&#8203;</p></div>
+request.send( ... );</code></pre></div></div></section><section id="_jsinterop_4"><h2>JsInterop</h2><div class="paragraph"><p>And the other way around (exporting Java to JS)</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">package fr.lteconsulting;
 
 @JsType
@@ -80,28 +82,96 @@ public class Robot
   public Robot( DataService dataService ) { ... }
 
   @JsMethod
-  protected void avance() { ... }
-}</code></pre></div></div></section><section id="_jsinterop_5"><h2>JsInterop</h2><div class="paragraph"><p>Puis en JS :</p></div>
+  protected void move() { ... }
+}</code></pre></div></div></section><section id="_jsinterop_5"><h2>JsInterop</h2><div class="paragraph"><p>In Javascript :</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code class="javascript language-javascript">let robot = new fr.lteconsulting.Robot( dataService )
 
 robot.wifiOn = true
 
-robot.avance()</code></pre></div></div></section><section id="_jsinterop_6"><h2>JsInterop</h2><div class="paragraph"><p>Donc <strong>Java</strong> peut fournir des composants au runtime <strong>Angular</strong>.</p></div>
-<div class="paragraph"><p>Et vice-versa.</p></div></section></section>
-<section><section id="_métadonnées"><h2>Métadonnées</h2><div class="paragraph"><p>Angular a besoin de méta-données sur les composants (<em>DI, routing, inputs/ouputs, &#8230;&#8203;</em>)</p></div><div class="paragraph"><p>Angular utilise les <strong>décorateurs</strong> ES7/Typescript (ex <strong>@Component()</strong>).</p></div><div class="paragraph"><p>Cela permet au développeur d&#8217;écrire moins de <em>boilerplate</em>.</p></div></section><section id="_en_java"><h2>en Java ?</h2><div class="paragraph"><p>Les annotations peuvent jouer le rôle des décorateurs (ex <strong>@Component</strong>).</p></div>
-<div class="paragraph"><p>On peut générer du code portant les informations de type pour le runtime Angular au moment de la compilation.</p></div>
-<div class="ulist"><ul><li><p>on utilise la JSR-269 pour générer les RTTI,</p></li><li><p>on utilise l&#8217;api JS d&#8217;Angular pour fournir les RTTI.</p></li></ul></div></section></section>
-<section id="_démo"><h2>Démo !</h2></section>
-<section id="_cas_d_utilisation"><h2>Cas d&#8217;utilisation</h2><div class="ulist"><ul><li><p>Applications 100% Java (petite ou grosse),</p></li><li><p>Implémentation de services en Java (interfaçage typé avec un Web service implémenté en Java),</p></li><li><p>Intégration JS/Typescript/Java,</p></li><li><p>Avec JHipster&#8230;&#8203;</p></li></ul></div></section>
-<section id="_problèmes_rencontrés"><h2>Problèmes rencontrés</h2><div class="ulist"><ul><li><p>Le code d&#8217;Angular utilise <code>instanceof</code>, obligé de le forker.</p></li><li><p>Les objets JSON provenants du serveur doivent être convertis&#8230;&#8203;</p></li></ul></div></section>
-<section id="_roadmap"><h2>Roadmap</h2><aside class="notes"><div class="paragraph"><p>Zones : montrer que l&#8217;on sort de la zone avec les timers GWT (non monkey patched par zone.js) et avec les appels à WebSpeechAPI</p></div>
-<div class="paragraph"><p>Montrer comment intégrer Java et JS : un Component écrit en Typescript avec un Component Java. Pourquoi pas aussi un Component Java avec des Widgets GWT. Le top serait de montrer un débug dans chrome avec une partie TS et une partie Java.</p></div></aside>
-<div class="ulist"><ul><li><p>Routeur à mettre à jour,</p></li><li><p>Génération du Typescript definition language pour les composants écrits en Java,</p></li><li><p>Plus si affinité&#8230;&#8203;</p></li></ul></div></section>
-<section id="_conclusion"><h2>Conclusion</h2><div class="ulist"><ul><li><p>Testé sur de petits projets, très agréable.</p></li><li><p>Rajeunit GWT ! (n&#8217;utilise que le coeur).</p></li><li><p>(IMHO) En profiter pour oublier certaines "<em>conventions</em>" java (getter/setter, nommage, &#8230;&#8203;).</p></li></ul></div>
-<div class="paragraph"><p>Si vous êtes intéressé par le projet, n&#8217;hésitez pas à demander pour le mettre en place !</p></div></section>
+robot.move()</code></pre></div></div>
+<div class="paragraph"><p><em>ps: can we drop semicolons in Java?</em></p></div></section><section id="_superdevmode"><h2>SuperDevMode</h2><div class="ulist"><ul><li><p>Fast incremental compiler for development,</p></li><li><p>Compile time function of code changes and not code base size!</p></li></ul></div></section></section>
+<section><section id="_angular2boot"><h2>Angular2Boot</h2><div class="ulist"><ul><li><p>Angular2Gwt: GWT and Angular2 integration library,</p></li><li><p>Spring boot: powerful and simple backend,</p></li><li><p>Dead simple bootstrapping to begin development.</p></li></ul></div></section><section id="_easy_to_try"><h2>Easy to try</h2><div class="listingblock"><div class="content"><pre class="highlight"><code>mvn archetype:generate \
+  -DarchetypeGroupId=fr.lteconsulting \
+  -DarchetypeArtifactId=angular2-gwt.archetype \
+  -DarchetypeVersion=1.6
+
+mvn clean install
+
+java -jar target/YOUR_ARTIFACT_ID.jar</code></pre></div></div></section><section id="_compile_on_reload"><h2>Compile on reload</h2><div class="listingblock"><div class="content"><pre class="highlight"><code># Backend
+mvn spring-boot:run
+
+# Frontend
+mvn gwt:run-codeserver</code></pre></div></div></section><section id="_production_code"><h2>Production code</h2><div class="listingblock"><div class="content"><pre class="highlight"><code># produit un fichier .war
+mvn clean install</code></pre></div></div>
+<div class="paragraph"><p>You get your autonomous fat jar!</p></div></section><section id="_architecture"><h2>Architecture</h2></section><section id="_" data-transition="fade" data-background="images/archi-survol.png" data-background-size="contain"></section><section id="__2" data-transition="fade" data-background="images/archi-compil.png" data-background-size="contain"></section><section id="__3" data-transition="fade" data-background="images/archi-runtime.png" data-background-size="contain"></section><section id="__4" data-transition="fade" data-background="images/archi-sdm.png" data-background-size="contain"></section><section id="__5" data-transition="fade" data-background="images/archi-survol.png" data-background-size="contain"></section><section id="__6" data-transition="fade" data-background="images/archi-compil-zoom.png" data-background-size="contain"></section><section id="__7" data-transition="fade" data-background="images/archi-runtime-zoom.png" data-background-size="contain"></section><section id="__8" data-transition="fade" data-background="images/archi-sdm-zoom.png" data-background-size="contain"></section><section id="_quick_demonstration"><h2>Quick demonstration</h2></section><section id="_java_javascript_communication"><h2>Java/Javascript communication</h2><div class="paragraph"><p>JsInterop can do that.</p></div>
+<div class="paragraph"><p><strong>Java</strong> can provide components to <strong>Angular</strong> runtime.</p></div>
+<div class="paragraph"><p>And vice-versa.</p></div></section><section id="_feeding_angular_with_metadatas"><h2>Feeding Angular with metadatas</h2><div class="paragraph"><p>Angular requires metadata on components (<em>DI, routing, inputs/ouputs, &#8230;&#8203;</em>)</p></div>
+<div class="paragraph"><p>Angular uses ES7/Typescript <strong>decorators</strong> (ex <strong>@Component()</strong>).</p></div>
+<div class="paragraph"><p>Those decorators alter class prototypes at runtime.</p></div>
+<div class="paragraph"><p>Less required <em>boilerplate</em> code.</p></div></section><section id="_in_java"><h2>In Java?</h2><div class="paragraph"><p>Annotations can play the role of decorators (ex <strong>@Component</strong>).</p></div>
+<div class="paragraph"><p>Those are processed at <strong>compile</strong> time.</p></div>
+<div class="paragraph"><p>Can generate RTTI code for Angular at compile time.</p></div>
+<div class="ulist"><ul><li><p>JSR-269 is used to generate RTTI,</p></li><li><p>Use Angular JS api to provide the RTTI.</p></li></ul></div></section><section id="_how_2"><h2>How?</h2><div class="ulist"><ul><li><p>Fetch Java class compiled JS constructor at runtime with JsInterop,</p></li><li><p>Patch it with Angular required metadata,</p></li><li><p>Provide the patched constructor function to Angular.</p></li></ul></div></section><section id="_consistent_syntax"><h2>Consistent syntax</h2><div class="paragraph"><p>For the developper, we want him to be able to read JS documentation and know <em>how</em> to code in Java.</p></div>
+<div class="paragraph"><p>In brief, consistency in the syntax.</p></div></section><section id="_typescript_written_component"><h2>Typescript written component</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="javascript language-javascript">@Component( {
+		selector: "my-hero-detail",
+		templateUrl: "hero-detail.component.html",
+		styleUrls: "hero-detail.component.css" } )
+export class HeroDetailComponent
+{
+  @Input() hero = null;
+
+	@Output() updated = new EventEmitter();
+
+	public HeroDetailComponent( private HeroService heroService )
+	{
+	}
+
+	ngOnInit() { ... }
+
+  // ...
+}</code></pre></div></div></section><section id="_java_equivalent"><h2>Java equivalent</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">@Component(
+		selector = "my-hero-detail",
+		templateUrl = "hero-detail.component.html",
+		styleUrls = "hero-detail.component.css" )
+@JsType
+public class HeroDetailComponent implements OnInit
+{
+  @Input public Hero hero = null;
+
+	@Output public EventEmitter&lt;Hero&gt; updated = new EventEmitter&lt;&gt;();
+
+	private HeroService heroService;
+
+	public HeroDetailComponent( HeroService heroService )
+	{
+		this.heroService = heroService;
+	}
+
+	@Override
+	public void ngOnInit() { ... }
+
+  // ...
+}</code></pre></div></div></section><section id="_the_instanceof_problem"><h2>The instanceof problem</h2><div class="paragraph"><p>Angular check at runtime that components are valid.</p></div>
+<div class="paragraph"><p>With SuperDevMode, code is loaded in an external frame thus breaking <code>instanceof</code> operator.</p></div>
+<div class="paragraph"><p>Few places needed to be patched</p></div></section><section id="_module_loading_problem"><h2>Module loading problem</h2><div class="paragraph"><p>GWT is not SystemJS (ES7 modules) friendly.</p></div>
+<div class="paragraph"><p>Need to generate a bundle with all Angular inside (you can choose/build your bundle depending on what you need).</p></div></section><section id="_building_angular"><h2>Building Angular</h2><div class="paragraph"><p>Angular 2 requires a strict environment to be built.</p></div>
+<div class="paragraph"><p>Docker to the rescue!</p></div>
+<div class="paragraph"><p>&#8658; From RC6 ro final: 1 hour of work!</p></div></section><section id="_legacy_gwt_widgets"><h2>Legacy GWT Widgets</h2><div class="paragraph"><p>In fact it worked out of the box, no problem, cool!</p></div></section><section id="_emulating_es6_property_get_and_set"><h2>Emulating ES6 property get and set</h2><div class="paragraph"><p>Java does not provide this language facility&#8230;&#8203;</p></div>
+<div class="paragraph"><p>So we use JSR-269 to generate trampoline functions, triggered by <code>@PropertyGetter</code> and <code>@Input</code> annotations.</p></div></section><section id="_testing"><h2>Testing</h2><div class="ulist"><ul><li><p>Unit tests,</p></li><li><p>Integration tests.</p></li></ul></div></section><section id="_unit_tests"><h2>Unit tests</h2><div class="ulist"><ul><li><p>No production-ready way to do that with Angular,</p></li><li><p>Difficult to use the <code>GWTTestCase</code> facility (need to bootstrap Angular in the testing environment which runs under HTMLUnit which is not ready for ES6. More, GWT uses Jetty as a testing backend but we want to be able to use <strong>any</strong> backend - Angular2Boot uses SpringBoot).</p></li></ul></div>
+<div class="paragraph"><p>No real solution yet&#8230;&#8203;</p></div></section><section id="_integration_tests"><h2>Integration tests</h2><div class="paragraph"><p>Using <strong>Selenium WebDriver</strong> and <strong>Spring</strong> integration testing facilities, it is done easily!</p></div>
+<div class="paragraph"><p><strong>Demonstration!</strong></p></div></section></section>
+<section id="_more_demos"><h2>More demos</h2></section>
+<section id="_advantages_of_angular2boot"><h2>Advantages of Angular2Boot</h2><div class="ulist"><ul><li><p>Developper doesn&#8217;t need to know internals of Angular2Gwt, everything is taken care of.</p></li><li><p>GWT compilation without User module (Widgets) is dead fast.</p></li><li><p>Really easy to bootstrap a working application (only one maven dependency in fact).</p></li><li><p>Optimizations done by GWT are still very powerful: fast application, small download.</p></li></ul></div></section>
+<section id="_javascript_and_java_commmunities_need_to_exchange"><h2>Javascript and Java commmunities need to exchange!</h2><div class="ulist"><ul><li><p>WebPack inspired by GWT&#8217;s code splitting,</p></li><li><p>Problems solved by Java since 20 years should inspire JS!</p></li><li><p>Dynamism of the JS ecosystem should inpire Java!</p></li></ul></div></section>
+<section id="_use_cases"><h2>Use cases</h2><div class="ulist"><ul><li><p>100% Java applications (small or big),</p></li><li><p>Implémentation de services en Java (interfaçage typé avec un Web service implémenté en Java),</p></li><li><p>JS, Typescript and Java integration,</p></li><li><p>Woudl fit well with JHipster?</p></li></ul></div></section>
+<section><section id="_futur_work_ideas"><h2>Futur work, ideas</h2></section><section id="_generate_ui_code_from_model_objects"><h2>Generate UI code from model objects</h2><div class="paragraph"><p>Code generation is not easy in Javascript but really easy in Java.</p></div>
+<div class="paragraph"><p>(see GWTCon talk on JSR-269).</p></div></section><section id="_generate_ts_descriptions_of_java_components_for_easy_integration_of_java_components_into_a_ts_angular_application"><h2>Generate TS descriptions of Java components for easy integration of Java components into a TS Angular application</h2><div class="paragraph"><p>Havin a Java backend, write the Angular service in Java (reuse code and DTOs) and export definitions to TS.</p></div></section><section id="_run_angular_in_nashorn_to_do_server_side_rendering_angular_universal"><h2>Run Angular in Nashorn to do server-side rendering (Angular Universal)</h2></section><section id="_module_loading"><h2>Module loading</h2><div class="paragraph"><p>Not easy!</p></div>
+<div class="paragraph"><p>Best is maybe to wait for GWT3 (J2Cl) which will be more ES7 module friendly.</p></div>
+<div class="paragraph"><p>This will allow more AOT compilation optimizations (Angular compiler may be able to work on the generated code).</p></div>
+<div class="paragraph"><p>Better integration with JS build and packaging tools.</p></div></section><section id="_static_analysis_of_java_code_is_really_easy"><h2>Static analysis of Java code is really easy !</h2></section><section id="_bundling_the_gwt_generated_js_together_with_angular_runtime_for_better_compression"><h2>Bundling the GWT generated JS together with Angular runtime for better compression.</h2></section></section>
+<section id="_conclusion"><h2>Conclusion</h2><div class="ulist"><ul><li><p>Tested on little projects, was very impressive!</p></li><li><p>Give GWT a second youth! (only uses the core of it).</p></li><li><p>(IMHO) Take the opportunity to throw some rules out the window! (getter/setter, naming, &#8230;&#8203;).</p></li></ul></div></section>
 <section id="_questions"><h2>Questions ?</h2></section>
-<section id="_merci_a_bientôt"><h2>Merci ! A bientôt</h2><div class="paragraph"><p>Les slides sont disponibles ici :</p></div>
-<div class="paragraph"><p><a href="http://www.lteconsulting.fr/angular2boot-talk/">www.lteconsulting.fr/angular2boot-talk/</a></p></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<section id="_thanks_it_was_a_pleasure"><h2>Thanks, it was a pleasure!</h2></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script>// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: true,
