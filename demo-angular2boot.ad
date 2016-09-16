@@ -462,49 +462,49 @@ You get an autonomous fat jar!
 === Architecture
 
 [%notitle]
-[data-transition=fade]
+[data-transition=none]
 [data-background="images/archi-survol.png"]
 [data-background-size=contain]
 === .
 
 [%notitle]
-[data-transition=fade]
+[data-transition=none]
 [data-background-size=contain]
 [data-background="images/archi-compil.png"]
 === .
 
 [%notitle]
-[data-transition=fade]
+[data-transition=none]
 [data-background-size=contain]
 [data-background="images/archi-runtime.png"]
 === .
 
 [%notitle]
-[data-transition=fade]
+[data-transition=none]
 [data-background-size=contain]
 [data-background="images/archi-sdm.png"]
 === .
 
 [%notitle]
-[data-transition=fade]
+[data-transition=none]
 [data-background="images/archi-survol.png"]
 [data-background-size=contain]
 === .
 
 [%notitle]
-[data-transition=fade]
+[data-transition=none]
 [data-background-size=contain]
 [data-background="images/archi-compil-zoom.png"]
 === .
 
 [%notitle]
-[data-transition=fade]
+[data-transition=none]
 [data-background-size=contain]
 [data-background="images/archi-runtime-zoom.png"]
 === .
 
 [%notitle]
-[data-transition=fade]
+[data-transition=none]
 [data-background-size=contain]
 [data-background="images/archi-sdm-zoom.png"]
 === .
