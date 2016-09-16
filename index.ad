@@ -56,7 +56,11 @@ Integrating Angular 2 and GWT 2.8:
 
 == Why?
 
-Angular 2 natively supports Typescript, Javascript and Dart but **Java** has all the required features.
+Angular 2 natively supports Typescript and Javascript.
+
+Angular 2 for Dart is maintained by the Dart team.
+
+Nevertheless **Java** has all the required features.
 
 image::angular-languages.png[]
 
@@ -757,7 +761,7 @@ Using **Selenium WebDriver** and **Spring** integration testing facilities, it i
 - Would fit well with JHipster...
 
 
-== Futur work, ideas
+== Future work, ideas
 
 === Generate UI code from model objects
 
