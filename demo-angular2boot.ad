@@ -19,7 +19,7 @@
 
 Speaker **Devoxx France**, **JUGs**, **GWT.create**, **GWTCon**, etc...
 
-Training : Java, Typescript, GWT, Angular 2, GIT, ...
+Training : Java, C#, .net, Typescript, GWT, Angular 2, GIT, ...
 
 Email : ltearno@gmail.com
 
@@ -44,11 +44,11 @@ Demo code available at
 
 A new RIA paradigm for Java : programming Angular 2 with Java 8.
 
-The coolest Java 8 RIA framework in the place ;)
+**The coolest Java 8 RIA framework in the place ;)**
 
-http://lteconsulting.fr/angular2boot/[lteconsulting.fr/angular2boot/]
+http://lteconsulting.fr/angular2boot/[lteconsulting.fr/angular2boot]
 
-== A more technical title
+== A more technical title...
 
 Integrating Angular 2 and GWT 2.8, problems and solutions...
 
@@ -60,9 +60,10 @@ image::angular-languages.png[]
 
 Why is not Java in the party ? Let's remedy !
 
-== How ?
+[%notitle]
+== .
 
-So it all started as an experiment...
+It all started as an experiment...
 
 But since it rocks, I wanted to show it to the world !
 
