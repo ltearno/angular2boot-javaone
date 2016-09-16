@@ -318,6 +318,8 @@ GWT 2.8 is the transition version to a new future:
 
 === GWT 3 (aka J2Cl)
 
+_not released yet_
+
 - Lightweight,
 - More unopiniated (can be integrated anywhere),
 - Drops a lot of functionalities done now by standard tools.
