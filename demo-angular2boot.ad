@@ -142,7 +142,7 @@ image::angular-success.png[]
 
 === When it came to evolve the framework, the team decided to build upon the (enormous) return of experience they had...
 
-=== And they decided to write Angular 2 from scratch.
+=== And they decided to write Angular 2 from scratch!
 
 === Why? What were the problems?
 
@@ -330,7 +330,7 @@ _not released yet_
 === The compiler
 
 - Preserves Java semantic,
-- Still does a bunch of optimisations,
+- Still does a bunch of optimisations (pruning, static analysis..),
 - Mostly ouputs modern Javascript, optimizable with Closure Compiler.
 
 === JsInterop
