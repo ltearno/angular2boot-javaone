@@ -680,7 +680,7 @@ Using **Selenium WebDriver** and **Spring** integration testing facilities, it i
 - 100% Java applications (small or big),
 - Service implementations in Java (strongly typed Web service interfacing),
 - JS, Typescript and Java integration,
-- Woudl fit well with JHipster?
+- Would fit well with JHipster...
 
 
 == Futur work, ideas
@@ -689,7 +689,7 @@ Using **Selenium WebDriver** and **Spring** integration testing facilities, it i
 
 Code generation is not easy in Javascript but really easy in Java.
 
-(see GWTCon talk on JSR-269).
+(see http://www.lteconsulting.fr/annotation-processing/#/[GWTCon talk on JSR-269]).
 
 === Generate TS descriptions of Java components for easy integration of Java components into a TS Angular application
 
