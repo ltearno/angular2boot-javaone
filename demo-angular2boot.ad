@@ -15,9 +15,11 @@
 
 == Arnaud Tournier
 
-Archi-dev et formateur chez **LTE Consulting**.
+**LTE Consulting** founder.
 
 Speaker **Devoxx France**, **JUGs**, **GWT.create**, **GWTCon**, etc...
+
+Training : Java, Typescript, GWT, Angular 2, GIT, ...
 
 Email : ltearno@gmail.com
 
@@ -27,17 +29,26 @@ Web : http://www.lteconsulting.fr[www.lteconsulting.fr]
 
 Full stack (x86_64 to JavaScript)
 
-== Find this presentation !
+== This presentation is online !
 
-This presentation is available online at : XXXXXXXXXXXXXXX
+http://lteconsulting.fr/angular2boot-javaone/[lteconsulting.fr/angular2boot-javaone]
+
+Demo code available at
+
+- https://github.com/ltearno/tour-of-heroes[github.com/ltearno/tour-of-heroes]
+- https://github.com/ltearno/angular2boot-demos[github.com/ltearno/angular2boot-demos]
 
 == Angular 2 Boot ?
 
-A new RIA paradigm for Java
+A new RIA paradigm for Java : programming Angular 2 with Java 8.
 
-Programming Angular 2 with Java 8
+The coolest Java 8 RIA framework in the place ;)
 
-Using GWT (2.8's JsInterop) to integrate Angular 2
+http://lteconsulting.fr/angular2boot/[lteconsulting.fr/angular2boot/]
+
+== A more technical title
+
+Integrating Angular 2 and GWT 2.8, problems and solutions...
 
 == Why ?
 
@@ -51,11 +62,7 @@ Why is not Java in the party ? Let's remedy !
 
 So it all started as an experiment...
 
-Projet Open Source permettant d'utiliser Angular 2 avec le langage Java 8.
-
-http://lteconsulting.fr/angular2boot/[lteconsulting.fr/angular2boot/]
-
-But since it is very very cool, I wanted to show it to the world !
+But since it rocks, I wanted to show it to the world !
 
 [NOTE.speaker]
 --
@@ -66,21 +73,57 @@ Qui a un backend Java et front en JS ?
 Java permet de maitriser la complexité d'une grosse base de code (donc plutot grosses applications). Taille moyenne des applications GWT : au moins 100000 loc.
 --
 
-== A bit of context
+[data-background="images/ingredients.jpg"]
+== The receipe
 
-Angular
+=== Angular 2
 
-GWT
+- non invasive,
+- performances,
+- modern architecture, simple and efficient.
 
-The Web (HTML5, ES6 and the family...)
+=== GWT 2.8
+
+- **Java 8** (strong typing, lambdas, streams, ...)
+- **JsInterop** (easy integration with JS)
+- **SuperDevMode** (compile on reload)
+- Optimized compilation (generated js size, performances)
+
+=== JSR 269
+
+- Annotation Processing API
+- Code generation during compilation
+
+=== Spring Boot
+
+- Standalone server application,
+- Easy to start with,
+- Rich API (Spring),
+- _Angular2Gwt works with **any** backend_.
+
+
+
+
+== Presentation structure
+
+- Angular 2,
+- GWT,
+- Angular2Boot,
+- Demonstration,
+- Challenges,
+- Roadmap,
+- Q&A
+
+
+
 
 == Angular 2
 
-Angular first appeared in 2009.
+Angular 1 was released in 2009.
 
-=== At that time, not a lot of Javascript RIA framework exist.
+=== At that time, there was not a lot of Javascript RIA frameworks.
 
-=== Angular was bringing the **Data binding** to the browser.
+=== Angular brings the **Data binding** to the browser.
 
 === And you suddendly were able to write a todo list application in few lines of code !
 
@@ -94,17 +137,72 @@ image::angular-success.png[]
 
 === And they decided to write Angular 2 from scratch.
 
-=== What were the problems ?
+=== Why ? What were the problems ?
 
 === Architectural problems...
 
-Dynamic scoping
+- Dynamic scoping,
+- Slow dirty checking,
+- Insane amount of directives to learn,
+- Difficult debugging...
 
-[source,html]
-----
-----
 
-=== Data binding was implemented with dirty-checking algorithm 
+== Angular 2 fundamentals
+
+- Modules,
+- Components,
+- Dependency Injection,
+- Change detection.
+
+=== Modules
+
+Parts of the application are encapsulated into _modules_.
+
+Leans to clean code and advanced AOT.
+
+=== Components
+
+Basic blocks of your application.
+
+Contains :
+
+- _view_ (template),
+- _model_ (data and methods).
+
+Interaction between view and model through _data binding_.
+
+=== Components
+
+Each component is responsible for a part of the DOM tree.
+
+Components form a tree.
+
+Components can interacts with each other (inputs, outputs...).
+
+=== Example
+
+IMAGE DE L'ARBRE DE COMPOSANTS
+
+
+=== Dependency Injection
+
+Sharing services between components.
+
+Lifecycle and dependencies are managed by Angular.
+
+Each component has a Dependency Injector. Those also form a tree.
+
+
+=== Change detection
+
+Angular uses Zone.js to track changes.
+
+Zones are the _asynchronous TLS_.
+
+They preserve an execution context accross asynchronous calls.
+
+(done by patching most of the browsers async functions)
+
 
 
 
@@ -143,28 +241,11 @@ mvn gwt:run-codeserver
 mvn clean install
 ----
 
-[data-background="images/ingredients.jpg"]
-== Ingrédients
 
-=== Angular 2
 
-- non invasif,
-- performant,
-- architecture moderne, simple et efficace.
 
-=== GWT 2.8
 
-- **Java 8** (typage fort, lambdas, streams, ...)
-- **JsInterop** (integration js facile)
-- **SuperDevMode** (live reload)
-- Compilation très **optimisée** (taile js --)
 
-=== Spring Boot
-
-- Application serveur standalone,
-- Facile à configurer,
-- API très riche (basé sur Spring),
-- _Angular2Boot fonctionne avec n'importe quel backend_.
 
 == Architecture et Fonctionnement
 
