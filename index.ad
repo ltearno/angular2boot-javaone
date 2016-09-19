@@ -60,7 +60,7 @@ Angular 2 natively supports Typescript and Javascript.
 
 Angular 2 for Dart is maintained by the Dart team.
 
-Nevertheless **Java** has all the required features.
+Nevertheless **Java** has all the required features. And it brings strong typing.
 
 image::angular-languages.png[]
 
@@ -603,7 +603,7 @@ Angular requires metadata on components (_DI, routing, inputs/ouputs, ..._)
 
 Angular uses ES7/Typescript **decorators** (ex *@Component()*).
 
-Those decorators alter class prototypes at runtime.
+Those decorators alter component's constructor at runtime.
 
 Less required _boilerplate_ code.
 
@@ -681,19 +681,19 @@ public class HeroDetailComponent implements OnInit
 ----
 
 
+=== Module loading problem
+
+GWT is not SystemJS (ES7 modules) friendly.
+
+Need to generate a bundle with all Angular inside (you can choose/build your bundle depending on what you need).
+
 === The instanceof problem
 
 Angular checks at runtime that components are valid.
 
 With SuperDevMode, code is loaded in an external frame thus breaking `instanceof` operator.
 
-Few places needed to be patched
-
-=== Module loading problem
-
-GWT is not SystemJS (ES7 modules) friendly.
-
-Need to generate a bundle with all Angular inside (you can choose/build your bundle depending on what you need).
+Few places needed to be patched _(for dev mode only)_.
 
 === Building Angular
 
@@ -707,9 +707,13 @@ Docker to the rescue!
 
 In fact it worked out of the box, no problem, cool!
 
+`WidgetAdapterPanel`...
+
 === Emulating ES6 get and set operators
 
 Java does not provide this language facility...
+
+JsInterop neither...
 
 So we use JSR-269 to generate trampoline functions, triggered by `@PropertyGetter` and `@Input` annotations.
 

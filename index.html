@@ -16,7 +16,7 @@
 <div class="paragraph"><p><strong>problems</strong> and <strong>solutions</strong>&#8230;&#8203;</p></div></section>
 <section id="_why"><h2>Why?</h2><div class="paragraph"><p>Angular 2 natively supports Typescript and Javascript.</p></div>
 <div class="paragraph"><p>Angular 2 for Dart is maintained by the Dart team.</p></div>
-<div class="paragraph"><p>Nevertheless <strong>Java</strong> has all the required features.</p></div>
+<div class="paragraph"><p>Nevertheless <strong>Java</strong> has all the required features. And it brings strong typing.</p></div>
 <div class="imageblock" style=""><div class="content"><img src="images/angular-languages.png" alt="angular languages"></div></div>
 <div class="paragraph"><p>Why is not Java in the party? <strong>Let&#8217;s remedy!</strong></p></div></section>
 <section id="_"><div class="paragraph"><p>It all started as an experiment&#8230;&#8203;</p></div>
@@ -134,7 +134,7 @@ mvn gwt:run-codeserver</code></pre></div></div></section><section id="_productio
 <div class="paragraph"><p><strong>Java</strong> can provide components to <strong>Angular</strong> runtime.</p></div>
 <div class="paragraph"><p>And vice-versa.</p></div></section><section id="_feeding_angular_with_metadatas"><h2>Feeding Angular with metadatas</h2><div class="paragraph"><p>Angular requires metadata on components (<em>DI, routing, inputs/ouputs, &#8230;&#8203;</em>)</p></div>
 <div class="paragraph"><p>Angular uses ES7/Typescript <strong>decorators</strong> (ex <strong>@Component()</strong>).</p></div>
-<div class="paragraph"><p>Those decorators alter class prototypes at runtime.</p></div>
+<div class="paragraph"><p>Those decorators alter component&#8217;s constructor at runtime.</p></div>
 <div class="paragraph"><p>Less required <em>boilerplate</em> code.</p></div></section><section id="_in_java"><h2>In Java?</h2><div class="paragraph"><p>Annotations can play the role of decorators (ex <strong>@Component</strong>).</p></div>
 <div class="paragraph"><p>Those are processed at <strong>compile</strong> time.</p></div>
 <div class="paragraph"><p>And generate RTTI code for Angular.</p></div></section><section id="_how"><h2>How?</h2><div class="ulist"><ul><li><p>JSR-269 is used to generate RTTI,</p></li><li><p>Use Angular JS api through JsInterop to provide the RTTI.</p></li></ul></div></section><section id="_how_2"><h2>How?</h2><div class="ulist"><ul><li><p>Fetch Java class compiled JS constructor at runtime with JsInterop,</p></li><li><p>Patch it with Angular required metadata,</p></li><li><p>Provide the patched constructor function to Angular.</p></li></ul></div></section><section id="_consistent_syntax"><h2>Consistent syntax</h2><div class="paragraph"><p>The developper should be able to read JS documentation and know <em>how</em> to code in Java.</p></div>
@@ -171,12 +171,14 @@ public class HeroDetailComponent implements OnInit
   public void ngOnInit() { ... }
 
   // ...
-}</code></pre></div></div></section><section id="_the_instanceof_problem"><h2>The instanceof problem</h2><div class="paragraph"><p>Angular checks at runtime that components are valid.</p></div>
+}</code></pre></div></div></section><section id="_module_loading_problem"><h2>Module loading problem</h2><div class="paragraph"><p>GWT is not SystemJS (ES7 modules) friendly.</p></div>
+<div class="paragraph"><p>Need to generate a bundle with all Angular inside (you can choose/build your bundle depending on what you need).</p></div></section><section id="_the_instanceof_problem"><h2>The instanceof problem</h2><div class="paragraph"><p>Angular checks at runtime that components are valid.</p></div>
 <div class="paragraph"><p>With SuperDevMode, code is loaded in an external frame thus breaking <code>instanceof</code> operator.</p></div>
-<div class="paragraph"><p>Few places needed to be patched</p></div></section><section id="_module_loading_problem"><h2>Module loading problem</h2><div class="paragraph"><p>GWT is not SystemJS (ES7 modules) friendly.</p></div>
-<div class="paragraph"><p>Need to generate a bundle with all Angular inside (you can choose/build your bundle depending on what you need).</p></div></section><section id="_building_angular"><h2>Building Angular</h2><div class="paragraph"><p>Angular 2 requires a strict environment to be built.</p></div>
+<div class="paragraph"><p>Few places needed to be patched <em>(for dev mode only)</em>.</p></div></section><section id="_building_angular"><h2>Building Angular</h2><div class="paragraph"><p>Angular 2 requires a strict environment to be built.</p></div>
 <div class="paragraph"><p>Docker to the rescue!</p></div>
-<div class="paragraph"><p>&#8658; From RC6 to final: 1 hour of work!</p></div></section><section id="_legacy_gwt_widgets_integration"><h2>Legacy GWT Widgets integration</h2><div class="paragraph"><p>In fact it worked out of the box, no problem, cool!</p></div></section><section id="_emulating_es6_get_and_set_operators"><h2>Emulating ES6 get and set operators</h2><div class="paragraph"><p>Java does not provide this language facility&#8230;&#8203;</p></div>
+<div class="paragraph"><p>&#8658; From RC6 to final: 1 hour of work!</p></div></section><section id="_legacy_gwt_widgets_integration"><h2>Legacy GWT Widgets integration</h2><div class="paragraph"><p>In fact it worked out of the box, no problem, cool!</p></div>
+<div class="paragraph"><p><code>WidgetAdapterPanel</code>&#8230;&#8203;</p></div></section><section id="_emulating_es6_get_and_set_operators"><h2>Emulating ES6 get and set operators</h2><div class="paragraph"><p>Java does not provide this language facility&#8230;&#8203;</p></div>
+<div class="paragraph"><p>JsInterop neither&#8230;&#8203;</p></div>
 <div class="paragraph"><p>So we use JSR-269 to generate trampoline functions, triggered by <code>@PropertyGetter</code> and <code>@Input</code> annotations.</p></div></section><section id="_testing"><h2>Testing</h2><div class="ulist"><ul><li><p>Unit tests,</p></li><li><p>Integration tests.</p></li></ul></div></section><section id="_unit_tests"><h2>Unit tests</h2><div class="ulist"><ul><li><p>No production-ready way to do that with Angular yet,</p></li><li><p>Difficult to use the <code>GWTTestCase</code> facility (need to bootstrap Angular in the testing environment which runs under HTMLUnit which is not ready for ES6. More, GWT uses Jetty as a testing backend but we want to be able to use <strong>any</strong> backend - Angular2Boot uses SpringBoot).</p></li></ul></div>
 <div class="paragraph"><p>No real solution yet&#8230;&#8203;</p></div></section><section id="_integration_tests"><h2>Integration tests</h2><div class="paragraph"><p>Using <strong>Selenium WebDriver</strong> and <strong>Spring</strong> integration testing facilities, it is done easily!</p></div>
 <div class="paragraph"><p><strong>Demonstration!</strong></p></div></section></section>
