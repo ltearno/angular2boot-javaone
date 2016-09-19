@@ -103,7 +103,8 @@ Java permet de maitriser la complexité d'une grosse base de code (donc plutot g
 === JSR 269
 
 - Java Annotation Processing API,
-- Code generation integrated with compilation.
+- Code generation integrated with compilation,
+- Boilerplate code generation.
 
 === Spring Boot
 
