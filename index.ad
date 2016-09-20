@@ -1,5 +1,5 @@
 = Angular 2 Boot
-:author: Arnaud Tournier - LTE Consulting - JavaOne 2016 - San Francisco
+:author: Arnaud Tournier - @ltearno - LTE Consulting - JavaOne 2016 - San Francisco
 :email: ltearno@gmail.com
 :backend: revealjs
 :deckjs_theme: neon
@@ -241,7 +241,7 @@ Developping complex web applications was ... hell!
 
 === What GWT brought
 
-- Hide browsers incompatibilities,
+- Hide browsers inconsistencies,
 - Widgets to build the UI : Swing-like,
 - A complete toolkit for the Web (resource caching, RPC, ...),
 - A very good compiler!
@@ -261,6 +261,15 @@ int a = s.getArea();
 [source,java]
 ----
 Square s = new Square(2); // No need for the Shape interface
+int a = s.getArea();
+----
+
+[data-transition=fade-in]
+=== Becomes
+
+[source,java]
+----
+Square s = new Square(2);
 int a = s.length * s.length; // Method inlining
 ----
 
@@ -279,7 +288,7 @@ All that at **compile time**!
 - The Javascript ecosystem really rocks! (we need to leverage that)
 - The evergreen browsers are compatible (do not require a layer above them anymore)
 
-=== Other problems
+=== GWT problems
 
 - The compilation was (really very) slow.
 - GWT did too much: _build system, optimisations, permutations, not following standards, proprietary RPC, code change detection, templating..._
@@ -588,8 +597,6 @@ You get an autonomous fat jar!
 [data-background="images/archi-sdm-zoom.png"]
 === .
 
-=== Quick demonstration
-
 === Java/Javascript communication
 
 JsInterop can do that.
@@ -735,11 +742,13 @@ No real solution yet...
 
 Using **Selenium WebDriver** and **Spring** integration testing facilities, it is done easily!
 
-**Demonstration!**
+== Demo!
 
+image::orchard-blueprint.jpg[]
 
+== Demo!
 
-== More demos
+image::orchard-tree.jpg[]
 
 
 == Advantages of Angular2Boot
