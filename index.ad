@@ -744,11 +744,15 @@ Using **Selenium WebDriver** and **Spring** integration testing facilities, it i
 
 == Demo!
 
-image::orchard-blueprint.jpg[]
+[%notitle]
+[data-background="images/orchard-blueprint.jpg"]
+[data-background-size=contain]
+=== .
 
-== Demo!
-
-image::orchard-tree.jpg[]
+[%notitle]
+[data-background="images/orchard-tree.jpg"]
+[data-background-size=contain]
+=== .
 
 
 == Advantages of Angular2Boot
